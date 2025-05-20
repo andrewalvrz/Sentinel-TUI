@@ -1,17 +1,17 @@
 use ratatui::{
     layout::{Layout, Constraint, Direction, Rect},
     style::{Style, Color},
-    widgets::{Block, Borders, Chart, Dataset, Axis},
+    widgets::{Block, Borders, Chart, Dataset, Axis, Paragraph},
     symbols,
     Frame,
-    backend::Backend,
 };
+
+use ratatui::text::{Span, Line};
+
 use crate::app::{AppState, Tab};
 
 
-
-pub fn draw_ui(f: &mut Frame, app: &AppState)
-{
+pub fn draw_ui(f: &mut Frame, app: &AppState) {
     let chunks = Layout::default()
         .direction(Direction::Vertical)
         .margin(1)
@@ -20,8 +20,8 @@ pub fn draw_ui(f: &mut Frame, app: &AppState)
 
     let title = match app.current_tab {
         Tab::Overview => "Overview",
-        Tab::IMU => "IMU",
-        Tab::GPS => "GPS",
+        Tab::IMU => "IMU Data",
+        Tab::GPS => "GPS Coordinates",
     };
 
     let block = Block::default()
@@ -32,12 +32,12 @@ pub fn draw_ui(f: &mut Frame, app: &AppState)
 
     match app.current_tab {
         Tab::Overview => draw_chart(f, chunks[1], app),
-        _ => {} // Placeholder for now
+        Tab::GPS => draw_gps(f, chunks[1], app),
+        Tab::IMU => draw_imu(f, chunks[1], app),
     }
 }
 
- fn draw_chart(f: &mut Frame, area: Rect, app: &AppState)
-{
+fn draw_chart(f: &mut Frame, area: Rect, app: &AppState) {
     let data = app.data_log.iter().cloned().collect::<Vec<_>>();
 
     let dataset = Dataset::default()
@@ -52,4 +52,37 @@ pub fn draw_ui(f: &mut Frame, app: &AppState)
         .y_axis(Axis::default().title("Altitude").bounds([0.0, 200.0]));
 
     f.render_widget(chart, area);
+}
+
+fn draw_gps(f: &mut Frame, area: Rect, app: &AppState) {
+    let gps = &app.gps;
+
+    let text = vec![
+    Line::from(vec![Span::raw(format!("Latitude:  {:.5}", gps.lat))]),
+    Line::from(vec![Span::raw(format!("Longitude: {:.5}", gps.lon))]),
+    Line::from(vec![Span::raw(format!("Altitude:  {:.1} m", gps.alt))]),
+];
+
+    
+
+    let para = Paragraph::new(text)
+        .block(Block::default().title("GPS Data").borders(Borders::ALL));
+
+    f.render_widget(para, area);
+}
+
+fn draw_imu(f: &mut Frame, area: Rect, app: &AppState) {
+    let imu = &app.imu;
+
+    let text = vec![
+    Line::from(vec![Span::raw(format!("Pitch: {:.2}°", imu.pitch))]),
+    Line::from(vec![Span::raw(format!("Roll:  {:.2}°", imu.roll))]),
+    Line::from(vec![Span::raw(format!("Yaw:   {:.2}°", imu.yaw))]),
+];
+
+
+    let para = Paragraph::new(text)
+        .block(Block::default().title("IMU Data").borders(Borders::ALL));
+
+    f.render_widget(para, area);
 }
