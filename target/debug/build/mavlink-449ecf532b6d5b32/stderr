@@ -1,0 +1,33 @@
+fatal: not a git repository (or any of the parent directories): .git
+error: patch failed: message_definitions/v1.0/ardupilotmega.xml:278
+error: message_definitions/v1.0/ardupilotmega.xml: patch does not apply
+error: patch failed: message_definitions/v1.0/common.xml:6478
+error: message_definitions/v1.0/common.xml: patch does not apply
+error: patch failed: message_definitions/v1.0/ardupilotmega.xml:121
+error: message_definitions/v1.0/ardupilotmega.xml: patch does not apply
+error: patch failed: message_definitions/v1.0/common.xml:2540
+error: message_definitions/v1.0/common.xml: patch does not apply
+error: patch failed: message_definitions/v1.0/common.xml:2702
+error: message_definitions/v1.0/common.xml: patch does not apply
+error: patch failed: message_definitions/v1.0/common.xml:5168
+error: message_definitions/v1.0/common.xml: patch does not apply
+TODO: dialect "2"
+TODO: version "3"
+TODO: version "3"
+TODO: dialect "0"
+TODO: deprecated "All gimbals should use MAV_COMP_ID_GIMBAL."
+TODO: deprecated "System control does not require a separate component ID."
+TODO: deprecated "This message has been superseded by MAV_CMD_DO_GIMBAL_MANAGER_ATTITUDE. The message can still be used to communicate with legacy gimbals implementing it."
+TODO: deprecated "This message is ambiguous and inconsistent. It has been superseded by MAV_CMD_DO_GIMBAL_MANAGER_ATTITUDE and MAV_CMD_DO_SET_ROI_*. The message can still be used to communicate with legacy gimbals implementing it."
+TODO: deprecated "This flag must always be set if missions are supported, because missions must always use MISSION_ITEM_INT (rather than MISSION_ITEM, which is deprecated)."
+TODO: deprecated "Use COMMAND_LONG with MAV_CMD_DO_SET_MODE instead"
+TODO: deprecated "A system that gets this request should respond with MISSION_ITEM_INT (as though MISSION_REQUEST_INT was received)."
+TODO: deprecated "Suffers from missing airspeed fields and singularities due to Euler angles"
+TODO: deprecated "New version explicitly defines format. More interoperable."
+TODO: deprecated "This message is being superseded by MAV_CMD_DO_GIMBAL_MANAGER_ATTITUDE. The message can still be used to communicate with legacy gimbals implementing it."
+TODO: version "3"
+TODO: deprecated "All gimbals should use MAV_COMP_ID_GIMBAL."
+TODO: deprecated "System control does not require a separate component ID."
+TODO: version "3"
+TODO: dialect "0"
+TODO: version "3"

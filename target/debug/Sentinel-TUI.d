@@ -1,0 +1,1 @@
+C:\Users\andre\andrewsbox\Sentinel-TUI\target\debug\Sentinel-TUI.exe: C:\Users\andre\andrewsbox\Sentinel-TUI\src\app.rs C:\Users\andre\andrewsbox\Sentinel-TUI\src\main.rs C:\Users\andre\andrewsbox\Sentinel-TUI\src\telemetry.rs C:\Users\andre\andrewsbox\Sentinel-TUI\src\ui.rs

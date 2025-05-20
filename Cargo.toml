@@ -1,0 +1,11 @@
+[package]
+name = "Sentinel-TUI"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ratatui = "0.26"
+crossterm = "0.27"
+serialport = "4.2"
+mavlink = "0.10"
+rand = "0.8"
