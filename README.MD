@@ -2,7 +2,7 @@
 
 **Sentinel-TUI** is a terminal-based telemetry dashboard for drones, built with [Ratatui](https://github.com/ratatui-org/ratatui). It features a multi-tab interface for real-time visualization of altitude, GPS coordinates, and IMU data (pitch, roll, yaw).
 
-![Sentinel-TUI Demo](demo.gif)
+![Sentinel-TUI Demo](/docs/demo.png)
 
 ---
 
